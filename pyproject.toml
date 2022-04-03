@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyvcard"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["rodrigo-fernandez <rodrigof@epidataconsulting.com>"]
 
@@ -9,6 +9,7 @@ python = "^3.8"
 Pillow = "^9.0.1"
 qrcode = "^7.3.1"
 vobject = "^0.9.6"
+segno = "^1.4.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

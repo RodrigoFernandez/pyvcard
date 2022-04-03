@@ -3,6 +3,9 @@ import qrcode.image.svg
 import vobject
 from PIL import Image
 
+import segno
+from segno import helpers
+
 
 # https://towardsdatascience.com/generate-qrcode-with-python-in-5-lines-42eda283f325
 # https://github.com/lincolnloop/python-qrcode
@@ -73,3 +76,22 @@ def generar_vcard(titular, empresa, contacto):
     rta.url.value = contacto['site']
 
     return rta.serialize()
+
+
+def generar_vcard_segno_prueba():
+    vcard = helpers.make_vcard_data(name="Reiris;Gaston;Dr.",
+                                    displayname="Gaston Reiris",
+                                    email="ggreiris@seraparrilla.com.ar",
+                                    phone="4444-5555",
+                                    url="https://seraparrilla.netlify.app/",
+                                    org="Será Parrilla",
+                                    title="CEO y Gerente de Baños")
+    print(vcard)
+
+    qrcode = segno.make(vcard, error='H')
+    qrcode.save('./qr_segno_ggreiris.png', scale=2)
+
+
+def generar_vcard_segno(fuente, destino):
+    qrcode = segno.make(fuente, error='H')
+    qrcode.save(destino, scale=6)
